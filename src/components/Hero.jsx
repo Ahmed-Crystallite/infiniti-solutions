@@ -15,7 +15,12 @@ const Hero = () => {
   return (
     <section>
       <div className="relative z-10 md:pt-[150px] pt-[130px] pb-[60px]">
-        <Image src={BG} alt="noise" priority className="absolute bg-white -z-10 w-full h-full inset-0 object-cover object-center"/>
+        <Image
+          src={BG}
+          alt="noise"
+          priority
+          className="absolute bg-white -z-10 w-full h-full inset-0 object-cover object-center"
+        />
         <div className="container">
           <div className="grid xl:grid-cols-2 grid-cols-1 items-center xl:gap-x-5 gap-y-10">
             <div>
@@ -29,8 +34,16 @@ const Hero = () => {
                 that spark growth and prosperity.
               </p>
               <div className="flex items-center gap-x-3 xl:mt-10 mt-5">
-                <CTA variant="withIcon" text="Schedule Call" css="md:px-8 px-3.5" />
-                <CTA variant="link" text="View Case Study" css="md:px-8 !px-0" />
+                <CTA
+                  variant="withIcon"
+                  text="Schedule Call"
+                  css="md:px-8 px-3.5"
+                />
+                <CTA
+                  variant="link"
+                  text="View Case Study"
+                  css="md:px-8 !px-0"
+                />
               </div>
               <div className="flex flex-wrap gap-y-4 items-center mt-[25px]">
                 <span className="block sm:max-w-[200px] text-[15px] font-semibold leading-normal">

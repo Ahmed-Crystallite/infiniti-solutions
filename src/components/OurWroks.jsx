@@ -9,6 +9,7 @@ import { AnimatedTooltip } from "./AnimatedTooltip"
 import Elipses from "media/home/elipses.png"
 import Work from "media/home/work.png"
 import Play from "media/home/icons/play.svg"
+import Pause from "media/home/icons/pause.png"
 import BG from "media/home/background_noise.png"
 const OurWroks = () => {
   const people = [
@@ -71,22 +72,33 @@ const OurWroks = () => {
   ]
 
   const [visibleCount, setVisibleCount] = useState(4)
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
+  const videoRef = useRef(null)
 
   const handleShowMore = () => {
     setVisibleCount((prevCount) => prevCount + 1)
   }
 
-  const remainingItems = people.length - visibleCount
-
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
-  const videoRef = useRef(null)
-
   const handlePlayClick = () => {
-    setIsVideoPlaying(true)
     if (videoRef.current) {
-      videoRef.current.play()
+      if (isVideoPlaying) {
+        videoRef.current.pause()
+      } else {
+        videoRef.current.play()
+      }
+      setIsVideoPlaying(!isVideoPlaying)
     }
   }
+
+  const handleVideoPause = () => {
+    setTimeout(() => {
+      if (videoRef.current && videoRef.current.paused) {
+        setIsVideoPlaying(false)
+      }
+    }, 500)
+  }
+
+  const remainingItems = people.length - visibleCount
 
   return (
     <section>
@@ -152,24 +164,29 @@ const OurWroks = () => {
                     <h3 className="xl:text-[48px] sm:text-[30px] text-[25px] sm:tracking-[1.2rem] tracking-[0.6rem] leading-tight font-semibold text-white">
                       HOW WE WORK
                     </h3>
-                    <button
-                      type="button"
-                      onClick={handlePlayClick}
-                      className="absolute -bottom-8 2xl:-right-8 sm:-right-5 -right-2 bg-[#99EA48] border-[12px] border-[#fafafa] sm:w-[163px] w-[120px] sm:h-[163px] h-[120px] rounded-[163px] flex items-center justify-center"
-                    >
-                      <Image src={Play} alt="playIcon" />
-                    </button>
                   </>
                 )}
+                <button
+                  type="button"
+                  onClick={handlePlayClick}
+                  className="absolute -bottom-8 2xl:-right-8 sm:-right-3 -right-2 bg-[#99EA48] border-[12px] border-[#fafafa] sm:w-[163px] w-[120px] sm:h-[163px] h-[120px] rounded-[163px] flex items-center justify-center"
+                >
+                  {isVideoPlaying ? (
+                    <Image src={Pause} alt="pauseIcon" />
+                  ) : (
+                    <Image src={Play} alt="playIcon" />
+                  )}
+                </button>
                 <video
                   controlsList="nodownload noplaybackrate nofullscreen"
                   autoPlay
                   disablePictureInPicture
                   ref={videoRef}
-                  className={`absolute inset-0 -z-10 w-full h-full rounded-[20px] transition-opacity duration-500 ${
+                  className={`absolute pointer-events-none select-none inset-0 -z-10 w-full h-full rounded-[20px] transition-opacity duration-500 ${
                     isVideoPlaying ? "opacity-100" : "opacity-0"
                   }`}
                   controls={isVideoPlaying}
+                  onPause={handleVideoPause}
                   onEnded={() => setIsVideoPlaying(false)}
                 >
                   <source src="/home/dummy.mp4" type="video/mp4" />

@@ -44,7 +44,7 @@ export const PrevButton = (props) => {
     <button
       type="button"
       {...restProps}
-      className={`bg-transparent border border-[#010205] w-[88px] h-[56px] flex items-center justify-center rounded-full [&:disabled]:bg-black [&:disabled]:text-white [&:disabled]:cursor-not-allowed ${classes}`}
+      className={`bg-black text-white border border-[#010205] w-[88px] h-[56px] flex items-center justify-center rounded-full [&:disabled]:bg-transparent [&:disabled]:text-black [&:disabled]:opacity-50 [&:disabled]:cursor-not-allowed ${classes}`}
     >
       <ArrowLeft />
     </button>
@@ -58,7 +58,7 @@ export const NextButton = (props) => {
     <button
       type="button"
       {...restProps}
-      className={`bg-transparent border border-[#010205] w-[88px] h-[56px] flex items-center justify-center rounded-full [&:disabled]:bg-black [&:disabled]:text-white [&:disabled]:cursor-not-allowed ${classes}`}
+      className={`bg-black text-white border border-[#010205] w-[88px] h-[56px] flex items-center justify-center rounded-full [&:disabled]:bg-transparent [&:disabled]:text-black [&:disabled]:opacity-50 [&:disabled]:cursor-not-allowed ${classes}`}
     >
       <ArrowRight />
     </button>

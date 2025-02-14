@@ -16,6 +16,15 @@ const OurWorks = dynamic(() => import("./OurWroks"))
 const MarketingObjectives = dynamic(() => import("./MarketingObjectives"))
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/Tabs"
 const Reviews = dynamic(() => import("./Reviews"))
+const FAQs = dynamic(() => import("./FAQs"))
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./ui/Accordion"
+const BannerCTA = dynamic(() => import("./BannerCTA"))
+const Footer = dynamic(() => import("./Footer"))
 
 export {
   CTA,
@@ -34,4 +43,11 @@ export {
   TabsTrigger,
   AutoScrollSlider,
   Reviews,
+  FAQs,
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+  BannerCTA,
+  Footer,
 }
