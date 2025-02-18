@@ -14,6 +14,7 @@ const AutoScrollSlider = dynamic(() => import("./Slider/AutoScroll"))
 const ProgressBar = dynamic(() => import("./Slider/ProgressBar"))
 const OurWorks = dynamic(() => import("./OurWroks"))
 const MarketingObjectives = dynamic(() => import("./MarketingObjectives"))
+import { CardBody, CardContainer, CardItem } from "./ui/3dCard"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/Tabs"
 const Reviews = dynamic(() => import("./Reviews"))
 const FAQs = dynamic(() => import("./FAQs"))
@@ -24,6 +25,7 @@ import {
   AccordionTrigger,
 } from "./ui/Accordion"
 const BannerCTA = dynamic(() => import("./BannerCTA"))
+const Portfolio = dynamic(() => import("./Portfolio"))
 const Footer = dynamic(() => import("./Footer"))
 
 export {
@@ -37,6 +39,9 @@ export {
   ProgressBar,
   OurWorks,
   MarketingObjectives,
+  CardBody,
+  CardContainer,
+  CardItem,
   Tabs,
   TabsContent,
   TabsList,
@@ -49,5 +54,6 @@ export {
   AccordionItem,
   AccordionTrigger,
   BannerCTA,
+  Portfolio,
   Footer,
 }

@@ -1,114 +1,20 @@
-"use client"
-import { useState, useEffect } from "react"
 import BG from "media/home/background_noise.png"
 import Elipses from "media/home/elipses.png"
+import Icon1 from "media/home/serviceIcon/1.png"
+import Icon2 from "media/home/serviceIcon/2.png"
+import Icon3 from "media/home/serviceIcon/3.png"
+import Icon4 from "media/home/serviceIcon/4.png"
+import Icon5 from "media/home/serviceIcon/5.png"
+import Icon6 from "media/home/serviceIcon/6.png"
+import Icon7 from "media/home/serviceIcon/7.png"
 import Image from "next/image"
-import {
-  AutoScrollSlider,
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "./index"
-import Mockup1 from "media/home/mockups/1.png"
-import Mockup2 from "media/home/mockups/2.png"
-import Mockup3 from "media/home/mockups/3.png"
+import { AutoScrollSlider, CardBody, CardContainer, CardItem } from "./index"
 import Link from "next/link"
 
 const MarketingObjectives = () => {
-  const [tabsData, setTabsData] = useState({})
-  const [activeTab, setActiveTab] = useState(null)
-
-  useEffect(() => {
-    const data = {
-      "All Work": [Mockup1, Mockup2, Mockup3, Mockup1, Mockup2, Mockup3],
-      "UI/UX Design": [Mockup2, Mockup3],
-      "Digital Marketing": [Mockup1, Mockup3],
-      Branding: [Mockup1, Mockup2],
-    }
-    setTabsData(data)
-
-    if (Object.keys(data).length > 0) {
-      setActiveTab(Object.keys(data)[0])
-    }
-  }, [])
-
-  const handleTabChange = (value) => {
-    setActiveTab(value)
-  }
-
-  const renderTabContent = (tabName) => {
-    const images = tabsData[tabName] || []
-
-    return (
-      <AutoScrollSlider emblaWrapper="flex ml-0" wrapperCss="!overflow-visible">
-        {images.map((img, i) => (
-          <div key={i} className="grow-0 shrink-0 basis-auto px-5">
-            <div className="relative z-10 group overflow-hidden border-[10px] transition-all ease-in-out duration-300 md:w-[460px] w-[350px] md:h-[460px] h-[350px] scale-100 hover:rounded-full hover:scale-105 border-white/30 rounded-[30px]">
-              <Image
-                src={img}
-                alt="mockup"
-                className="absolute -z-10 w-full h-full object-cover object-center"
-              />
-              <span className="absolute bg-black/50 -z-10 w-full h-full object-cover object-center"></span>
-              <div className="flex flex-col justify-between h-full items-start group-hover:justify-center group-hover:items-center px-5 py-10">
-                <Link
-                  href="#"
-                  className="absolute scale-0 invisible h-0 group-hover:scale-100 group-hover:visible group-hover:flex group-hover:items-center group-hover:justify-center group-hover:transition-all group-hover:ease-in-out group-hover:duration-300 group-hover:w-[163px] group-hover:h-[163px] group-hover:rounded-[163px] group-hover:text-[18px] group-hover:bg-primary hover:bg-primary/90 group-hover:text-white group-hover:leading-tight group-hover:font-bold"
-                >
-                  See Details
-                </Link>
-                <div className="flex group-hover:hidden items-center gap-x-5 w-full">
-                  <span className="block bg-white h-[2px] basis-[10%] shrink-0"></span>
-                  <h3 className="basis-[75%] shrink-0 md:text-[17px] text-[15px] leading-tight font-semibold">
-                    Ai Corporation. 2023
-                  </h3>
-                </div>
-                <h3 className="group-hover:hidden md:text-[24px] text-[18px] leading-tight font-semibold">
-                  Ai Wave - Ai Chatbot Mobile App
-                </h3>
-              </div>
-            </div>
-          </div>
-        ))}
-      </AutoScrollSlider>
-    )
-  }
-
-  if (!activeTab) {
-    return (
-      <div className="container">
-        <div className="text-center text-black">
-          <div className="flex items-center gap-x-3 xl:text-[48px] lg:text-[38px] md:text-[30px] text-[25px] font-semibold leading-tight max-w-[1300px] mx-auto">
-            <span className="block">Loading...</span>
-            <svg
-              className="size-10 animate-spin text-black"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <circle
-                className="opacity-25"
-                cx="12"
-                cy="12"
-                r="10"
-                stroke="currentColor"
-                strokeWidth="4"
-              ></circle>
-              <path
-                className="opacity-75"
-                fill="currentColor"
-                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-              ></path>
-            </svg>
-          </div>
-        </div>
-      </div>
-    )
-  }
   return (
     <section>
-      <div className="relative z-10 bg-[#FAFAFA] py-[10px] xl:px-[17px]">
+      <div className="relative z-10 bg-[#FAFAFA] xl:py-[10px] xl:px-[17px]">
         <Image
           src={BG}
           alt="noise"
@@ -121,31 +27,101 @@ const MarketingObjectives = () => {
             className="absolute w-full h-full top-[-15%] bottom-0 right-[-40%] -z-10 object-cover object-right opacity-90 rounded-[20px]"
           />
           <div className="container">
-            <div className="text-center text-white">
-              <h2 className="2xl:text-[48px] lg:text-[38px] md:text-[30px] text-[20px] font-semibold leading-tight max-w-[1300px] mx-auto">
-                Real-world examples of how we have helped companies achieve
-                their marketing objectives.
+            <div className="text-center text-white mb-[80px]">
+              <h2 className="2xl:text-[48px] lg:text-[38px] md:text-[30px] text-[20px] font-semibold leading-tight max-w-[1300px] mx-auto mb-4">
+                <span className="text-primary">Complete IT Support</span> For
+                Small And Medium Businesses Across The United States
               </h2>
+              <p className="text-base font-normal leading-normal max-w-[1300px] mx-auto">
+                At infinti-solutions, we’re pioneers in democratizing access to
+                technological advancement. Our mission? To ignite the digital
+                age for businesses, offering innovative solutions and services
+                that spark growth and prosperity. With a laser focus on customer
+                empowerment and strategic alliances, we’re not just redefining
+                investment; we’re revolutionizing it. Our commitment to
+                excellence, integrity, and relentless innovation ensures that we
+                don’t just meet expectations; we exceed them, propelling global
+                progress forward. Join us on the journey where infinti-solutions
+                open doors to boundless opportunities for individuals and
+                communities worldwide.
+              </p>
             </div>
-          </div>
-          <Tabs
-            value={activeTab}
-            onValueChange={handleTabChange}
-            className="!text-white mt-[50px]"
-          >
-            <TabsList className="lg:justify-center justify-start whitespace-nowrap flex-nowrap overflow-x-auto w-full mb-[70px]">
-              {Object.keys(tabsData).map((tabName, i) => (
-                <TabsTrigger key={i} value={tabName} className="px-5">
-                  {`${tabName} [${tabsData[tabName]?.length || 0}]`}
-                </TabsTrigger>
+            <AutoScrollSlider
+              emblaWrapper="flex ml-0"
+              wrapperCss="!overflow-visible"
+            >
+              {[
+                [
+                  Icon1,
+                  "Managed Services",
+                  "Elevate your business with our Managed Services, offering seamless IT solutions and round-the-clock support. From proactive monitoring to strategic optimization, we ensure maximum uptime and efficiency. Partner with us for peace of mind and focus on what truly matters—your success",
+                ],
+                [
+                  Icon1,
+                  "Cloud",
+                  "Embrace limitless scalability and flexibility with our Cloud solutions. From data storage to application hosting, we provide tailored cloud services to suit your needs. Experience seamless integration and enhanced efficiency as you propel your business into the digital age.",
+                ],
+                [
+                  Icon2,
+                  "Security",
+                  "Safeguard your digital assets with our comprehensive Security solutions. From threat detection to data encryption, we prioritize your peace of mind. Partner with us to fortify your defenses and stay ahead in an ever-evolving threat landscape.",
+                ],
+                [
+                  Icon3,
+                  "IT Service Desk",
+                  "Experience unparalleled support with our IT Service Desk solutions. Our expert team ensures swift resolution to technical issues, keeping your operations running smoothly. Trust us to provide proactive assistance and personalized solutions tailored to your needs.",
+                ],
+                [
+                  Icon4,
+                  "Web 3.0 Development",
+                  "Embark on the next frontier of the web with our Web 3.0 Development services. Harness the power of blockchain, AI, and decentralized technologies to create immersive and secure digital experiences. Join us in shaping the future of the internet with innovative solutions tailored to your vision.",
+                ],
+                [
+                  Icon5,
+                  "Digital Marketing",
+                  "Elevate your online presence with our Digital Marketing expertise. From SEO strategies to social media campaigns, we drive targeted traffic and amplify your brand’s reach. Partner with us to unlock growth opportunities and stand out in the digital landscape.",
+                ],
+                [
+                  Icon6,
+                  "Hosting Service",
+                  "Experience reliable and scalable hosting solutions with our Hosting Service. From websites to applications, we ensure seamless performance and uptime. Trust us to provide secure and tailored hosting options to meet your needs.",
+                ],
+                [
+                  Icon7,
+                  "Content Services",
+                  "Elevate your content game with our comprehensive Content Services. From engaging copy to captivating visuals, we craft compelling content tailored to your audience. Partner with us to tell your story and leave a lasting impression in the digital realm.",
+                ],
+              ].map(([img, title, desc], i) => (
+                <div key={i} className="grow-0 shrink-0 basis-auto px-5 h-full">
+                  <CardContainer>
+                    <CardBody className="md:rounded-[0_20px_0_20px] rounded-[20px] p-[50px_20px] text-center text-white relative group/card h-auto border-[4px] hover:border-primary/50 border-primary">
+                      <CardItem translateZ="100" className="mx-auto mt-4">
+                        <Image
+                          src={img}
+                          className="object-cover rounded-xl group-hover/card:shadow-lg group-hover/card:shadow-primary "
+                          alt="thumbnail"
+                        />
+                      </CardItem>
+                      <CardItem
+                        as="h3"
+                        translateZ="50"
+                        className="md:text-[24px] text-[18px] leading-tight font-semibold my-3 w-full"
+                      >
+                        {title}
+                      </CardItem>
+                      <CardItem
+                        as="p"
+                        translateZ="60"
+                        className="text-base leading-normal font-normal min-h-[200px]"
+                      >
+                        {desc}
+                      </CardItem>
+                    </CardBody>
+                  </CardContainer>
+                </div>
               ))}
-            </TabsList>
-            {Object.keys(tabsData).map((tabName, i) => (
-              <TabsContent key={i} value={tabName}>
-                {renderTabContent(tabName)}
-              </TabsContent>
-            ))}
-          </Tabs>
+            </AutoScrollSlider>
+          </div>
         </div>
       </div>
     </section>

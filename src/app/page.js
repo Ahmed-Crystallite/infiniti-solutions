@@ -4,6 +4,7 @@ import {
   Hero,
   MarketingObjectives,
   OurWorks,
+  Portfolio,
   Reviews,
 } from "@/components"
 import Services from "@/components/Services"
@@ -13,8 +14,9 @@ export default function Home() {
     <>
       <Hero />
       <OurWorks />
-      <MarketingObjectives />
+      <Portfolio />
       <Reviews />
+      <MarketingObjectives />
       <FAQs />
       <Services />
       <BannerCTA />
