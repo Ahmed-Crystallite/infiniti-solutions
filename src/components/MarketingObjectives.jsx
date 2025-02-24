@@ -98,7 +98,7 @@ const MarketingObjectives = () => {
                       <CardItem translateZ="100" className="mx-auto mt-4">
                         <Image
                           src={img}
-                          className="object-cover rounded-xl group-hover/card:shadow-lg group-hover/card:shadow-primary "
+                          className="object-cover rounded-xl group-hover/card:filter group-hover/card:drop-shadow-[3px_5px_5px_rgb(153_207_99)]"
                           alt="thumbnail"
                         />
                       </CardItem>
